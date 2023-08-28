@@ -17,3 +17,32 @@ if (player > pcPlayer) {
 } else {
   console.log("Avete pareggiato!!");
 }
+
+/* Mail
+Chiedi all'utente la sua email,
+ controlla che sia nella lista di chi può accedere,
+  stampa un messaggio appropriato sull’esito del controllo.
+Bonus
+Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina. */
+
+//creiamo una lista invitati
+// controlliamo che le email che siano nella lista
+// scrivere un messaggio se è inserito o no
+
+const userEmail = prompt("Inserisci l'email");
+const emailList = [
+  "angela.b@gmail.com",
+  "mattia90@hotmail.it",
+  "stefania_rossi@gmail.com",
+  "alessia.87@tiscali.it",
+];
+
+for (let i = 0; i < emailList.length; i++) {
+  const guest = emailList[i];
+  /* console.log(guest); */
+  if (guest === userEmail) {
+    console.log("sei invitato");
+  } else {
+    console.log("non sei invitato");
+  }
+}
