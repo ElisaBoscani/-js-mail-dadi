@@ -29,7 +29,11 @@ Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in
 // controlliamo che le email che siano nella lista
 // scrivere un messaggio se è inserito o no
 
-const userEmail = prompt("Inserisci l'email");
+/* const userEmail = prompt("Inserisci l'email"); */
+const userEmail = document.getElementById("email").value;
+
+const check = document.querySelector("button");
+
 const emailList = [
   "angela.b@gmail.com",
   "mattia90@hotmail.it",
@@ -39,10 +43,14 @@ const emailList = [
 
 for (let i = 0; i < emailList.length; i++) {
   const guest = emailList[i];
-  /* console.log(guest); */
-  if (guest === userEmail) {
-    console.log("sei invitato");
-  } else {
-    console.log("non sei invitato");
-  }
+  console.log(guest);
+  check.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (guest === userEmail) {
+      console.log("sei invitato");
+    } else {
+      console.log("non sei invitato");
+    }
+  });
 }
