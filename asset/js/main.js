@@ -31,8 +31,9 @@ Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in
 
 /* const userEmail = prompt("Inserisci l'email"); */
 const userEmail = document.getElementById("email");
-
+const contentEl = document.getElementById("content");
 const check = document.querySelector("form");
+const text = document.createElement("p");
 
 const emailList = [
   "angela.b@gmail.com",
@@ -44,13 +45,29 @@ const emailList = [
 for (let i = 0; i < emailList.length; i++) {
   const guest = emailList[i];
   console.log(guest);
-  check.addEventListener("click", function (e) {
+  check.addEventListener("submit", function (e) {
     e.preventDefault();
     const email = userEmail.value;
-    if (guest === email) {
-      console.log("sei invitato");
+
+    /*  if (guest === email) {
+      text.innerHTML = "Sei nella Lista degli Invitati";
+
+      console.log("Sei nella Lista degli Invitati");
     } else {
+      text.innerHTML = "Non sei nella Lista degli Invitati";
+
       console.log("non sei invitato");
+    } */
+    if (guest.indexOf(email) !== -1) {
+      text.innerHTML = "Sei nella Lista degli Invitati";
+
+      console.log("sei nella lista");
+    } else {
+      text.innerHTML = "Non sei nella Lista degli Invitati";
+      console.log("non sei nella lista");
     }
   });
+
+  userEmail.append(text);
+  contentEl.append(text);
 }
