@@ -42,32 +42,28 @@ const emailList = [
   "alessia.87@tiscali.it",
 ];
 
-for (let i = 0; i < emailList.length; i++) {
-  const guest = emailList[i];
-  console.log(guest);
-  check.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const email = userEmail.value;
+check.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    /*  if (guest === email) {
-      text.innerHTML = "Sei nella Lista degli Invitati";
+  const email = userEmail.value;
+  let inList = false;
 
-      console.log("Sei nella Lista degli Invitati");
-    } else {
-      text.innerHTML = "Non sei nella Lista degli Invitati";
+  for (let i = 0; i < emailList.length; i++) {
+    const guest = emailList[i]; // stringa@mail
+    console.log(guest);
 
-      console.log("non sei invitato");
-    } */
-    if (guest.indexOf(email) !== -1) {
+    if (guest == email) {
+      inList = true;
       text.innerHTML = "Sei nella Lista degli Invitati";
 
       console.log("sei nella lista");
-    } else {
-      text.innerHTML = "Non sei nella Lista degli Invitati";
-      console.log("non sei nella lista");
     }
-  });
+  }
 
+  if (inList == false) {
+    text.innerHTML = "Non sei nella Lista degli Invitati";
+    console.log("non sei nella lista");
+  }
   userEmail.append(text);
   contentEl.append(text);
-}
+});
